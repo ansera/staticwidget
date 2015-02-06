@@ -1,0 +1,2 @@
+# staticwidget
+client side widget
