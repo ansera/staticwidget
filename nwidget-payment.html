@@ -1,0 +1,1437 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UgEPWFZbGwAAU1NQAQg="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:18,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:18,2:19,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:19,2:18,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:19,2:18,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:19,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){p.proto="https"===d.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=p.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=window,c=s.document,u="addEventListener",f="attachEvent",d=(""+location).split("?")[0],p=e.exports={offset:i(),origin:d,features:{}};c[u]?(c[u]("DOMContentLoaded",o,!1),s[u]("load",n,!1)):(c[f]("onreadystatechange",r),s[f]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}],18:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],19:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:18,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+    <title>Loket.com - BECOME ONE - JAKARTA ELECTRONIC DANCE MUSIC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script type="text/javascript" src="http://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js" data-token="1d53c8a1e89c49dda2a886965295c2b7"></script>
+
+    <!-- New stylesheet for new reponsive layout widget payment -->
+    <link href="https://idm-events.loket.com/css/widget/responsive_widget.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/widget/html5shiv.js"></script>
+    <![endif]-->
+    <script src="https://idm-events.loket.com/js/widget/jquery.js"></script>
+    <script src="https://idm-events.loket.com/js/widget/bootstrap.min.js"></script>
+    <script src="https://idm-events.loket.com/js/widget/script.js"></script>
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("de7f9c8982f0bd7143100bf07c5358b3");</script><!-- end Mixpanel -->
+  </head>
+    <body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-38578959-1', 'loket.com');
+  ga('require', 'displayfeatures');
+  ga(function(tracker) {
+    var hash = location.hash;
+    var mcId = hash.match('mc_eid=(.*)');
+    var cid = tracker.get('clientId');
+        if(mcId){
+        var vid = mcId[1];
+        ga('set', 'dimension1', vid);
+        }
+  });
+  ga('send', 'pageview');
+
+</script>
+    <script id="person-template" type="text/x-handlebars-template">
+      <p class="person">{{firstname}} {{lastname}}</p>
+    </script>
+
+    <script src="js/handlebars.js"></script>
+    <script>
+      window.onload=function(){
+        var source=document.getElementById("person-template").innerHTML;
+        var template=Handlebars.compile(source);
+        var context={firstname:"Nta",lastname:"Ansera"};
+        var output=template(context);
+        document.getElementById("nameoutput").innerHTML=output;
+      }
+    </script>
+
+        <div class="container-fluid">
+            <div class="row-fluid header">
+			  <div class="site-header">
+                          <div class="hook">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col grid-6">
+                                  <h1>BECOME ONE - JAKARTA ELECTRONIC DANCE MUSIC</h1>
+                                </div>
+
+                                <div class="col grid-6">
+                                  <div class="cart dropdown">
+                                    <a href="cart.html" data-toggle="dropdown">
+                                      <div class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M27.675 7.127c-.255-.292-.621-.46-1.008-.46h-18.425l-.26-1.552c-.107-.643-.663-1.115-1.315-1.115h-3c-.737 0-1.333.596-1.333 1.333s.596 1.333 1.333 1.333h1.871l2.48 14.885.06.165.072.201.16.239.127.149c.077.072.167.123.257.173l.149.087c.155.063.317.1.489.1h14.668c.737 0 1.333-.596 1.333-1.333s-.596-1.333-1.333-1.333h-13.537l-.221-1.333h15.092c.664 0 1.227-.488 1.32-1.144l1.333-9.333c.055-.384-.06-.772-.312-1.063zm-2.546 2.206l-.38 2.667h-4.749v-2.667h5.129zm-6.462 0v2.667h-4v-2.667h4zm0 4v2.667h-4v-2.667h4zm-5.334-4v2.667h-4l-.197.04-.451-2.707h4.648zm-3.981 4h3.981v2.667h-3.537l-.444-2.667zm10.648 2.667v-2.667h4.557l-.38 2.667h-4.177zM13.333 26c0 1.105-.895 2-2 2s-2-.895-2-2 .895-2 2-2 2 .895 2 2zM25.333 26c0 1.105-.895 2-2 2s-2-.895-2-2 .895-2 2-2 2 .895 2 2z"></path></svg>
+                                      </div>
+                                      <span class="displayed-subtotal">Rp 1.253.000,00</span>
+                                    </a>
+                                    <div class="dropdown-menu"> 
+                                            <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Ticket Type</th>
+                              <th style="text-align:center;white-space:nowrap;">Qty</th>
+                              <th style="text-align:right;white-space:nowrap;">Price</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                                                        <tr>
+                              <td>VIP IDR 1.200.000 (Tax Included) + Admin Fee IDR 53.000 </td>
+                              <td>1</td>
+                              <td style="text-align: right">
+                                <input type="hidden" id="hidden-price-6613" value="1253000.00" /><input type="hidden" id="hidden-discount-6613" value="0" /><input type="hidden" id="hidden-discount-type" value="" /><input type="hidden" name="ticket[0][id]" value="6613" /><input type="hidden" class="buyqty" id="hidden-qty-6613" name="ticket[0][qty]" value="1" /><input type="hidden" name="ticket_type" value="VIP IDR 1.200.000 (Tax Included) + Admin Fee IDR 53.000 " />                              </td>
+                            </tr>
+                                                        <tr>
+                                <td>Biaya Tambahan</td>
+                                <td>&nbsp;</td>
+                                <td style="text-align: right" id="convenience">-</td>
+                            </tr>
+                            <tr>
+                                <td class="subtotal-rincian"><strong>Total</strong></td>
+                                <td class="subtotal-rincian"><strong>1</strong></td>
+                                <td style="text-align: right" class="subtotal-rincian" id="subtotal"><strong>Rp 1.253.000,00</strong></td>
+                                <input type="hidden" id="raw-subtotal" value="1253000">
+                            </tr>
+                          </tbody>
+                        </table>
+                        
+                        </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>             </div>
+                <div class="header-info">
+            <div class="container">
+                <div class="row">
+                    <div class="col grid-7">
+                        <div class="cs">
+                        Info Support: Email support@loket.com, Twitter @loketid, Phone (021) 920 920 19                        </div>
+                    </div>
+                    <div class="col grid-5">
+                        <div class="lang">
+							    							<a class="en_lang" href="?lang=en">Change to English</a>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                 <div class="container">
+            <div class="steps info-step">
+              <div class="step step-page1 active" data-step="step-page1">
+                <a>
+                  <div>
+                    <b>1</b>
+                    <span>Checkout</span>
+                  </div>
+                </a>
+              </div>
+              <div class="step step-page2 " data-step="step-page2">
+                <a>
+                  <div>
+                    <b>2</b>
+                    <span>Info Profil</span>
+                  </div>
+                </a>
+              </div>
+              <div class="step step-page3 ">
+                <span>
+                  <div>
+                    <b>3</b>
+                    <span>Konfirmasi</span>
+                  </div>
+                </span>
+              </div>
+            </div>
+                      </div>
+        </div>
+        
+<div class="container">
+</div>
+<div class="container">
+  <div class="timer">
+      Perhatian! Anda hanya memiliki <span id="countdown"></span> untuk menyelesaikan transaksi ini  </div>
+  
+
+<form id="payment-form" action="/nwidget-complete" method="post" enctype="application/x-www-form-urlencoded">
+  <div class="step-page" id="step-page1">
+    <div class="form-wrapper">
+      <div class="payment-details">
+        <h3 class="legend">Silahkan pilih Cara Pembayaran</h3>
+        <div class="row">
+          <div class="col grid-12 grid-xs-4">
+            <div class="payment-list">
+              <ul>
+                                <li>
+                  <label class="radio">
+                    <div class="rad"></div>
+                    <input type="radio" class="payment-method" name="va" data-pay-with="va">
+                    <div class="textlabel">ATM Transfer</div>
+                  </label>
+
+                  <div class="meta">
+                    <div>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Jenis Tiket</th>
+                            <th style="white-space:nowrap;">Kuota</th>
+                            <th style="text-align:right;white-space:nowrap;">Harga</th>
+                          </tr>
+                        </thead>
+
+                        <tfoot>
+                          <tr>
+                            <td>Total</td>
+                            <td>
+                              <strong>1</strong>
+                            </td>
+                            <td style="text-align:right;white-space:nowrap;"><strong class="table-subtotal">Rp 1.253.000,00</strong></td>
+                          </tr>
+                        </tfoot>
+
+                        <tbody>
+                                              <tr>
+                          <td>VIP IDR 1.200.000 (Tax Included) + Admin Fee IDR 53.000 </td>
+                          <td>1</td>
+                          <td style="text-align: right">@ Rp 1.253.000,00</td>
+                        </tr>
+                        
+                          <tr>
+                            <td>Biaya Tambahan</td>
+                            <td>&nbsp;</td>
+                            <td style="text-align: right" class="convenience">-</td>
+                          </tr>
+                                                  </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </li>
+                
+                                <li>
+                  <label class="radio">
+                    <div class="rad"></div>
+                    <input type="radio" class="payment-method" name="cc" data-pay-with="cc">
+                    <div class="textlabel">Kartu Kredit</div>
+                  </label>
+
+                  <div class="meta">
+                    <div>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Jenis Tiket</th>
+                            <th style="white-space:nowrap;">Kuota</th>
+                            <th style="text-align:right;white-space:nowrap;">Harga</th>
+                          </tr>
+                        </thead>
+
+                        <tfoot>
+                          <tr>
+                            <td>Total</td>
+                            <td>
+                              <strong>1</strong>
+                            </td>
+                            <td style="text-align:right;white-space:nowrap;"><strong class="table-subtotal">Rp 1.253.000,00</strong></td>
+                          </tr>
+                        </tfoot>
+
+                        <tbody>
+                                                      <tr>
+                              <td>VIP IDR 1.200.000 (Tax Included) + Admin Fee IDR 53.000 </td>
+                              <td>1</td>
+                              <td style="text-align: right">@ Rp 1.253.000,00</td>
+                            </tr>
+                                                      <tr>
+                            <td>Biaya Tambahan</td>
+                            <td>&nbsp;</td>
+                            <td style="text-align: right" class="convenience"></td>
+                          </tr>
+                                                  </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action">
+        <div class="row">
+          <div class="col grid-6 grid-xs-0">
+            &nbsp;
+          </div>
+          <div class="col grid-6 grid-xs-4">
+            <div class="step" data-step="step-page2">
+              <a href="#" class="btn btn-green">Selanjutnya</a>
+            </div>
+            <!-- <button type="submit" class="btn btn-blue">Next step</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="step-page" id="step-page2" style="display:none;">
+      <table class="table table-bordered">
+        <tbody>
+          <tr class="form-normal-registration hide">
+              <td class="sidebar-right">
+                <div class="form-wrapper">
+                  <fieldset>
+                    <!-- Hide for a while
+                    <div class="tabnav">
+                      <a href="#" class="active">
+                        Guest
+                      </a>
+                      <a href="#">
+                        Member Login
+                      </a>
+                    </div>
+                    -->
+                    <h3 class="legend">Data Pribadi</h3>
+
+                    <div class="form-container">
+                      <div class="row">
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="first-name-control" class="form-group ">
+                            <label for="inputFirstName">
+                              <span>Nama Depan *</span>
+                            </label>
+                            <div class="input">
+                              <input type="text" name="first_name" class="form-control" id="m-first_name" maxlength="20" value="">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="last-name-control" class="form-group ">
+                            <label for="inputLastName">
+                              <span>Nama Belakang *</span>
+                            </label>
+
+                            <div class="input">
+                              <input type="text" class="form-control" name="last_name" id="m-last_name" maxlength="20" value="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="email-control" class="form-group ">
+                            <label for="inputEmail">
+                              <span>Email *</span>
+                            </label>
+
+                            <div class="input">
+                              <input type="email" class="form-control" name="email" id="m-email" maxlength="200"
+                                value="" >
+                              <div class="help-block">
+                                contoh : mail@example.com                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="email-confirm-control" class="form-group ">
+                            <label for="inputVerifiedEmail">
+                              <span>Verifikasi Email *</span>
+                            </label>
+
+                            <div class="input">
+                              <input type="email" class="form-control" name="re_email" id="m-re_email" maxlength="200"
+                                value="" >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="ktp-control" class="form-group ">
+                            <label for="inputID">
+                              <span>Nomor Identitas (KTP, SIM, dll) *</span>
+                            </label>
+
+                            <div class="input">
+                              <input type="text"  class="form-control" name="identity_id" id="m-identity_id" value="">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="phone-control" class="form-group ">
+                            <label for="inputPhone">
+                              <span>Nomor HP *</span>
+                            </label>
+
+                            <div class="input">
+                              <input type="text"  class="form-control" name="no_telp" id="m-no_telp" maxlength="19" value="">
+                            </div>
+                              <div class="help-block">
+                                Contoh: +62811111111 or 0811111111                              </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <h3 class="legend">Simpan Data Pribadi</h3>
+                    <div class="form-container">
+                        <div class="row">
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="" class="form-group">
+                            <label for="inputID">
+                              <span>Menjadi Anggota</span>
+                            </label>
+                            <input type="radio" name="join_member" value="1" style="margin-left:10px;" > Ya                            <input type="radio" name="join_member" value="0" style="margin-left:10px;" checked> Tidak                            <input type="hidden" name="temp_join_choise" id="temp_join_choise" value="0" >
+                          </div>
+                        </div>
+
+                        <div class="col grid-6 grid-xs-4" id="box_password" style="display:none">
+                          <div id="password-control" class="form-group">
+                            <label for="inputPhone">
+                              <span>Password untuk Keanggotaan *</span>
+                            </label>
+                            <div class="input">
+                              <input type="password" name="password" class="form-control" id="m-password" maxlength="20" value="">
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-container form-with-cc hide">
+                    <h3 class="legend">Info Profil</h3>
+                      <div class="subtitle-form" style="padding:10px 15px;">Semua informasi di bawah ini dibutuhkan untuk verifikasi kartu kredit. <br/>Semua kolom dengan (*) harus diisi</div>
+                      <div class="row">
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="address1-control" class="form-group ">
+                            <label for="vaddress1">
+                              <span>Alamat 1 *</span>
+
+                            </label>
+
+                            <div class="input">
+                              <input class="form-control" type="text" size="30" maxlength="50" id="m-vaddress1" name="vaddress1" title="Enter your address" value="" autocomplete="off">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="address2-control" class="form-group ">
+                            <label for="vaddress2">
+                              <span>Alamat 2 *</span>
+                            </label>
+
+                            <div class="input">
+                              <input class="form-control" type="text" size="30" maxlength="50" id="m-vaddress2" name="vaddress2" title="Enter your address" value="" autocomplete="off">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="city-control" class="form-group ">
+                            <label for="vcity">
+                              <span>Kota *</span>
+                            </label>
+
+                            <div class="input">
+                              <input class="form-control" type="text" size="20" maxlength="20" id="m-vcity" name="vcity" title="Enter your City" value="" autocomplete="off">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="postalcode-control" class="form-group ">
+                            <label for="inputZipcode">
+                              <span>Kode Pos *</span>
+                            </label>
+
+                            <div class="input">
+                              <input class="form-control" type="text" size="20" maxlength="10" id="m-vpostal_code" name="vpostal_code" title="Enter your postal code" value="" autocomplete="off">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="state-control" class="form-group ">
+                            <label for="vstate">
+                              <span>Provinsi *</span>
+                            </label>
+
+                            <div class="input">
+                              <input class="form-control" type="text" size="20" maxlength="20" id="m-vstate" name="vstate" title="Enter your State" value="" autocomplete="off">
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="country-control" class="form-group ">
+                            <label for="vcountry">
+                              <span>Negara *</span>
+                            </label>
+
+                            <div class="input">
+                              <select name="vcountry" id="vcountry" class="form-control" style="width:auto;float:left;">
+                                                                    <option value="IDN">Indonesia</option>
+                                    <option value="AUS">Australia</option>
+                                    <option value="AUT">Austria</option>
+                                    <option value="AZE">Azerbaijan</option>
+                                    <option value="BHR">Bahrain</option>
+                                    <option value="BGD">Bangladesh</option>
+                                    <option value="BRB">Barbados</option>
+                                    <option value="BRA">Brazil</option>
+                                    <option value="BRN">Brunei Darussalam</option>
+                                    <option value="BGR">Bulgaria</option>
+                                    <option value="KHM">Cambodia</option>
+                                    <option value="CMR">Cameroon</option>
+                                    <option value="CAN">Canada</option>
+                                    <option value="CAF">Central Africa</option>
+                                    <option value="CHL">Chile</option>
+                                    <option value="CHN">China</option>
+                                    <option value="COL">Colombia</option>
+                                    <option value="CRI">Costa Rica</option>
+                                    <option value="HRV">Croatia</option>
+                                    <option value="CUB">Cuba</option>
+                                    <option value="CYP">Cyprus</option>
+                                    <option value="CZE">Czech Republic</option>
+                                    <option value="DNK">Denmark</option>
+                                    <option value="DMA">Dominica</option>
+                                    <option value="TLS">East Timor</option>
+                                    <option value="ECU">Ecuador</option>
+                                    <option value="EGY">Egypt</option>
+                                    <option value="SLV">El Salvador</option>
+                                    <option value="EST">Estonia</option>
+                                    <option value="FRA">France</option>
+                                    <option value="FIN">Finland</option>
+                                    <option value="GEO">Georgia</option>
+                                    <option value="DEU">Germany</option>
+                                    <option value="GRC">Greece</option>
+                                    <option value="HUN">Hungary</option>
+                                    <option value="ISL">Iceland</option>
+                                    <option value="IND">India</option>
+                                    <option value="IRN">Iran</option>
+                                    <option value="IRQ">Iraq</option>
+                                    <option value="IRL">Ireland</option>
+                                    <option value="ISR">Israel</option>
+                                    <option value="ITA">Italia</option>
+                                    <option value="JAM">Jamaica</option>
+                                    <option value="JPN">Japan</option>
+                                    <option value="JOR">Jordania</option>
+                                    <option value="KAZ">Kazakhstan</option>
+                                    <option value="PRK">Korea, North</option>
+                                    <option value="KOR">Korea, South</option>
+                                    <option value="KWT">Kuwait</option>
+                                    <option value="LAO">Laos</option>
+                                    <option value="LTU">Lithuania</option>
+                                    <option value="LUX">Luxembourg</option>
+                                    <option value="MKD">Macedonia</option>
+                                    <option value="MGD">Madagascar</option>
+                                    <option value="MYS">Malaysia</option>
+                                    <option value="MDV">Maldives</option>
+                                    <option value="MLT">Malta</option>
+                                    <option value="MEX">Mexico</option>
+                                    <option value="MDA">Moldova</option>
+                                    <option value="MCO">Monaco</option>
+                                    <option value="MMR">Myanmar</option>
+                                    <option value="NPL">Nepal</option>
+                                    <option value="NLD">Netherland</option>
+                                    <option value="NZL">New Zealand</option>
+                                    <option value="NGA">Nigeria</option>
+                                    <option value="NOR">Norway</option>
+                                    <option value="OMN">Oman</option>
+                                    <option value="PAK">Pakistan</option>
+                                    <option value="PAN">Panama</option>
+                                    <option value="PNG">Papua New Guinea</option>
+                                    <option value="PRY">Paraguay</option>
+                                    <option value="PER">Peru</option>
+                                    <option value="PHL">Philippines</option>
+                                    <option value="POL">Poland</option>
+                                    <option value="PRT">Portugal</option>
+                                    <option value="QAT">Qatar</option>
+                                    <option value="ROU">Romania</option>
+                                    <option value="RUS">Russia</option>
+                                    <option value="RWA">Rwanda</option>
+                                    <option value="SAU">Saudi Arabia</option>
+                                    <option value="SGP">Singapore</option>
+                                    <option value="SVK">Slovakia</option>
+                                    <option value="SVN">Slovenia</option>
+                                    <option value="ZAF">South Africa</option>
+                                    <option value="ESP">Spain</option>
+                                    <option value="CHE">Switzerland</option>
+                                    <option value="TWN">Taiwan</option>
+                                    <option value="THA">Thailand</option>
+                                    <option value="TUN">Tunisia</option>
+                                    <option value="TUR">Turkey</option>
+                                    <option value="TKM">Turkmenistan</option>
+                                    <option value="UGA">Uganda</option>
+                                    <option value="UKR">Ukraine</option>
+                                    <option value="ARE">United Arab Emirates</option>
+                                    <option value="GBR">United Kingdom</option>
+                                    <option value="USA">United States of America</option>
+                                    <option value="URY">Uruguay</option>
+                                    <option value="UZB">Uzbekistan</option>
+                                    <option value="VEN">Venezuela</option>
+                                    <option value="VNM">Vietnam</option>
+                                    <option value="YEM">Yemen</option>
+                                                              </select>
+                              
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </div>
+
+                    <div class="form-with-cc form-container hide">
+
+                      <h3 class="legend">Informasi Kartu Kredit</h3>
+                      <div class="row">
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="vcard_number-control" class="form-group">
+                            <label for="vcard_number">
+                              <span>Nomor Kartu</span>
+                            </label>
+
+                            <div class="input">
+                              <input class="form-control" type="text" size="20"  maxlength="19" id="vcard_number" autocomplete="off" value="" >
+
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col grid-6 grid-xs-4">
+                          <div id="vcvv-control" class="form-group">
+                            <label for="vcvv">
+                              <span>CVV</span>
+                            </label>
+
+                            <div class="input">
+                              <input class="form-control" type="password" size="4"  maxlength="4" id="vcvv" value="" autocomplete="off">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col grid-6 grid-xs-4">
+                          <div class="form-group">
+                            <label>
+                              <span>Masa Habis</span>
+                            </label>
+
+                            <div class="input">
+                              <select name="vexpire_month" class="form-control" id="vexpire_month" style="width:auto;float:left;">
+                                <option value="01" >01</option><option value="02" selected="selected">02</option><option value="03" >03</option><option value="04" >04</option><option value="05" >05</option><option value="06" >06</option><option value="07" >07</option><option value="08" >08</option><option value="09" >09</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option>                              </select>
+                              <select name="vexpire_year" id="vexpire_year" class="form-control" style="width:auto;float:left;">
+                                  <option value="2014" selected="selected">2014</option>
+                                  <option value="2015">2015</option>
+                                  <option value="2016">2016</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2018">2018</option>
+                                  <option value="2019">2019</option>
+                                  <option value="2020">2020</option>
+                                  <option value="2021">2021</option>
+                                  <option value="2022">2022</option>
+                                  <option value="2023">2023</option>
+                                  <option value="2024">2024</option>
+                                  <option value="2025">2025</option>
+                                  <option value="2026">2026</option>
+                                  <option value="2027">2027</option>
+                                  <option value="2028">2028</option>
+                                  <option value="2029">2029</option>
+                                  <option value="2030">2030</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                      
+                      </div>
+                    </div>
+                                      </fieldset>
+
+                  <div class="action">
+                    <div class="row">
+                      <div class="col grid-6 grid-xs-2 step" data-step="step-page1">
+                        <a href="#" class="btn btn-default">Kembali</a>
+                      </div>
+
+                      <div class="col grid-6 grid-xs-2">
+                        <input type="submit" value="Selesai" class="btn btn-green" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+          </tr>
+            <tr class="form-with-cc hide">
+              <td class="sidebar-right">
+                  <input id="vtoken" name="vtoken" type="hidden" value="" />
+                  <input id="bin" name="bin" type="hidden" value="" />
+                  <input type="hidden" name="event_id" value="2683" />
+                  <input type="hidden" id="pay_with" name="pay_with" value="" />
+                                                      
+              </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>                      
+                      <img class="logo_cc" src="/css/icon/logo_acceptance_visa.png">
+                      <img class="logo_cc" src="/css/icon/logo_acceptance_mastercard.png">
+                      <img class="logo_cc" src="/css/icon/logo_acceptance_jcb.png">
+                      <img class="logo_non_cc" src="/css/icon/logo_acceptance_atm_bersama.png">
+                      <img class="logo_non_cc" src="/css/icon/logo_acceptance_prima.png">                      
+                  </p>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+  </div>
+</form>
+</div>
+
+<div class="footer">
+    <div class="container">
+        <div class="footer-info">
+            <span>
+                Info
+            </span>
+            <span>
+                Email
+                <a href="mailto:support@loket.com">support@loket.com</a>,
+            </span>
+            <span>
+                Twitter
+                <a href="http://twitter.com/loketid" target="_Blank">@loketid</a>,
+            </span>
+            <span>
+                Phone
+                <a href="tel:(021)92092019">(021) 920 920 19</a>
+            </span>
+        </div>
+
+        <small>2014 © Loket.com</small>
+    </div>
+</div>
+
+        <!-- Modal Dialog -->
+          <div class="modal hide" id="email-confirmation" style="display:none;">
+
+            <div class="modalpop">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="/css/icon/close.png"></button>
+              <center>
+                <img src="/css/icon/loket-logo.png">
+                <p>Konfirmasi <span id="tiket-or-pemesanan">Tiket</span> akan dikirimkan ke email:</p>
+                <h4 id="email-inputed"></h4>
+                <p>Pastikan email bisa diakses. Apakah email anda benar?</p>
+               <div class="block-gray1">
+                    <a class="btn btn-large btn-inverse btn-darkgray" id="ganti-email">Ganti Email</a>
+                    <a class="btn loket-btn btn-large btn-warning btn-orange" id="email-benar" style="height: inherit">Ya, Email Saya Benar</a>
+                </div>
+              </center>
+            </div>
+
+          </div>
+<script type="text/javascript" src="https://api.veritrans.co.id/v2/assets/js/veritrans.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" type="text/css" media="screen" />
+<script type="text/javascript">
+Veritrans.url = "https://api.veritrans.co.id/v2/token";Veritrans.client_key = "7220f7c3-5bcc-49c0-b666-635d119c099e";
+function _cardSet(){
+  var rv = {
+  "card_number": $('#vcard_number').val(),
+  "card_exp_month": $('#vexpire_month').val(),
+  "card_exp_year": $('#vexpire_year').val(),
+  "card_cvv": $('#vcvv').val(),
+    "bank"  : 'bni',
+        "secure"  : true,
+        "gross_amount"    : $("#raw-subtotal").val()
+  }
+  return rv;
+};
+
+function _success(d){
+
+  var token =  d.token_id;
+
+  if(token == '' || token == "undefined" || token == null){
+
+    var tixArray = new Array();
+
+    $("input[name='ticket_type']").each(function(){
+        tixArray.push($(this).val());
+    });
+
+    var tix_type = JSON.stringify(tixArray);
+
+    //send alert mail via ajax
+    $.ajax({
+      type : 'POST',
+      url : '/nwidget-complete',
+      dataType : 'text',
+      data: {
+          'token_error' : 1,
+          'event_id' : $("input[name='event_id']").val(),
+          'event_name' : "BECOME ONE - JAKARTA ELECTRONIC DANCE MUSIC",
+          'ticket_type' : tix_type,
+          'first_name' : $("input[name='first_name']").val(),
+          'email' : $("input[name='email']").val()
+      },
+      success : function(data){
+          console.log("success send email token error");
+          hide_email_confirmation();
+          $("#vcard_number-control").addClass("control-group error");
+          $("#vcard_number-control label").addClass("control-label");
+
+          $("#vcard_number-control span.help-block").empty();
+          $("#vcard_number-control span.help-block").append("cannot retrieve token from provider, please retry");
+      },
+      error : function(XMLHttpRequest, textStatus, errorThrown) {
+          console.log(textStatus+" ajax alert token");
+      }
+    });
+
+  }else{
+    $('#vtoken').val(token);
+
+    $.ajax({
+      type : 'POST',
+      url : '/ajax/log_veritrans.php',
+      dataType : 'text',
+      data: {
+          'msg'      : 'Step 2 - Token: ' + token + ', vToken: ' + $('#vtoken').val() + ', Name: ' + $("input[name='first_name']").val() + ', Email: ' + $("input[name='email']").val() + ', Event ID: ' +  $("input[name='event_id']").val() + ', Total Charge: ' + $("#raw-subtotal").val()
+      },
+      success : function(data){
+            window.submitted_ = true;
+            $("#email-benar").html("Processing...");
+            $('#final_button').attr("disabled", "disabled");
+
+            setTimeout( function(){
+              $("#payment-form")[0].submit();
+            },500);
+      },
+      error : function(XMLHttpRequest, textStatus, errorThrown) {
+          console.log(textStatus+" ajax alert token");
+      }
+    });
+
+  }
+
+
+};
+
+function _error(d){
+  hide_email_confirmation();
+  console.log(d);
+
+  $("#vcard_number-control").addClass("control-group error");
+  $("#vcard_number-control label").addClass("control-label");
+
+  $("#vcard_number-control span.help-block").empty();
+  $("#vcard_number").after("<span class='help-block'>"+d.status_message+"</span>");
+
+  return false;
+
+};
+
+
+function callback(response) {
+      if (response.redirect_url) {
+        // 3dsecure transaction, please open this popup
+        $("#email-confirmation").modal('hide');
+        openDialog(response.redirect_url);
+
+      } else if (response.status_code == '200') {
+        // success 3d secure or success normal
+        closeDialog();
+        showOverlay();
+
+
+        $.ajax({
+          type : 'POST',
+          url : '/ajax/log_veritrans.php',
+          dataType : 'text',
+          data: {
+              'msg'      : 'Step 1 - Token: ' + response.token_id + ', Browser: ' + navigator.userAgent + ', Bank: ' + ', Secure3D: '
+          },
+          success : function(data){
+                _success(response);
+          },
+          error : function(XMLHttpRequest, textStatus, errorThrown) {
+              console.log(textStatus+" ajax alert token");
+          }
+        });
+
+      } else {
+        // failed request token
+        console.log('Close Dialog - failed');
+        _error(response);
+        closeDialog();
+        //alert(response.status_message);
+      }
+    }
+
+    function openDialog(url) {
+        $.fancybox.open({
+              href: url,
+              type: 'iframe',
+              autoSize: false,
+              width: 400,
+              height: 420,
+              closeBtn: false,
+              modal: true
+          });
+      }
+
+      function closeDialog() {
+        $.fancybox.close();
+      }
+
+function showOverlay(){
+  var docHeight = $(document).height();
+  $("body").append("<div id='overlay'><span id='loader-img' style='display: block;color: #fff;position: absolute;z-index: 1000;text-align: center;top: 50%;left: 50%;margin: -48px 0 0 -38px;'><br><center>Loading...</center></span></div>");
+
+  $("#overlay")
+    .height(docHeight)
+    .css({
+       'opacity' : 0.5,
+       'position': 'fixed',
+       'top': 0,
+       'left': 0,
+       'background-color': 'black',
+       'width': '100%',
+       'height': '100%',
+       'z-index': 5000
+    });
+}
+
+</script>
+<script type="text/javascript">
+
+$('input[name="join_member"]').on('click', function(){
+  if ($(this).is(':checked') )
+  {
+    document.getElementById('temp_join_choise').value=$(this).val();
+    if ($(this).val() == 1)
+    {
+      $("#box_password").show();
+      $('input[name="password"]').focus();
+    }
+    else
+    {
+      $("#box_password").hide();
+    }
+  }
+});
+
+function submit_form_payment(event){
+  if (window.submitted_){
+    event.preventDefault();
+    return false;
+  }
+  if (getPayWith() == "cc"){
+    var cnumber_ = $('#vcard_number').val(), bin = cnumber_.split(" ").join("").substring(0, 6);
+
+        
+    $.ajax({
+            type : 'POST',
+            url : '/ajax/log_veritrans.php',
+            dataType : 'text',
+            data: {
+                'msg'      : 'Step 0 - Nama: ' + $("#m-first_name").val() + ' ' + $("#m-last_name").val() + ', Email: ' + $("#m-email").val() + ', Bin: ' + bin + ', Browser: ' + navigator.userAgent
+            },
+            success : function(data){
+                console.log(data);
+                //_success(response);
+            },
+            error : function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(textStatus+" ajax alert token");
+            }
+    });
+
+    $('#bin').val(bin);
+    event.preventDefault();
+    Veritrans.token(_cardSet, callback);
+    return false;
+  }
+  window.submitted_ = true;
+  $("#email-benar").html("Processing...");
+  $('#final_button').attr("disabled", "disabled");
+
+  $("#payment-form")[0].submit();
+  return true;
+}
+
+//phone number validation
+function is_phone_number(text){
+    var pattern = /^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})?$/i;
+    if (pattern.test(text) == false) {
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+function show_email_confirmation(pay){
+
+  var showAlert = false;
+  if ($("#temp_join_choise").val() == 1 && $("#m-password").val() == "")
+  {
+    showAlert = true;
+    $("#password-control label").addClass("control-label");
+    $("#password-control").addClass("control-group error");
+  }
+  else
+  {
+    $("#password-control").removeClass("error");
+  }
+
+  if(pay == "bt" || pay == "va" ||  pay == "cm" ||  pay == "be" ||  pay == "bm" ||  pay == "bk" || pay == "cc2" || pay == "cc3")
+  {
+
+    if($("#m-first_name").val() == "" || $("#m-last_name").val() == "" || $("#m-email").val() == "" || $("#m-re_email").val() == "" || $("#m-identity_id").val() == "" || $("#m-no_telp").val() == "" ) {
+
+      showAlert = true;
+
+      if($("#m-first_name").val() !== ""){
+        $("#first-name-control").removeClass("error");
+      }else{
+        $("#first-name-control label").addClass("control-label");
+        $("#first-name-control").addClass("control-group error");
+      }
+
+      if ($("#m-last_name").val() !== ""){
+         $("#last-name-control").removeClass("error");
+      }else{
+        $("#last-name-control").addClass("control-group error");
+        $("#last-name-control label").addClass("control-label");
+      }
+
+      if ($("#m-email").val() !== ""){
+        $("#email-control").removeClass("error");
+      }else{
+        $("#email-control").addClass("control-group error");
+        $("#email-control label").addClass("control-label");
+      }
+
+      if ($("#m-re_email").val() !== ""){
+        $("#email-confirm-control").removeClass("error");
+      }else{
+        $("#email-confirm-control").addClass("control-group error");
+        $("#email-confirm-control label").addClass("control-label");
+      }
+
+      if ($("#m-identity_id").val() !== ""){
+        $("#ktp-control").removeClass("error");
+      }else{
+        $("#ktp-control").addClass("control-group error");
+        $("#ktp-control label").addClass("control-label");
+      }
+
+      if ($("#m-no_telp").val() !== ""){
+        $("#phone-control").removeClass("error");
+      }else{
+        $("#phone-control").addClass("control-group error");
+        $("#phone-control label").addClass("control-label");
+      }
+
+    }
+    else
+    {
+      $(".control-group").removeClass("error");
+    }
+
+    var phone = $("#m-no_telp").val();
+    if (is_phone_number(phone) == false) {
+      alert("Format nomor HP : 0812XXXXXXXX atau +62812XXXXXXXX");
+      $("#phone-control").addClass("control-group error");
+      $("#phone-control label").addClass("control-label");
+      return false;
+    }
+
+    if($("#m-re_email").val() != $("#m-email").val()){
+        alert("Harap isi Konfirmasi alamat Email sesuai dengan alamat email awal");
+        $("#email-confirm-control").addClass("control-group error");
+        $("#email-confirm-control label").addClass("control-label");
+        return false;
+    }
+  }
+
+  if (pay == "cc"){
+
+    if ($("#m-first_name").val() == "" || $("#m-last_name").val() == "" || $("#m-email").val() == "" || $("#m-re_email").val() == "" || $("#m-identity_id").val() == "" || $("#m-no_telp").val() == "" || $("#m-vaddress1").val() == "" || $("#m-vaddress2").val() == "" || $("#m-vcity").val() == "" || $("#m-vpostal_code").val() == "" || $("#vcountry").val() == "" || $("#vcard_number").val() == "" || $("#vcvv").val() == "" ){
+
+      showAlert = true;
+
+      if($("#m-first_name").val() !== ""){
+        $("#first-name-control").removeClass("error");
+      }else{
+        $("#first-name-control label").addClass("control-label");
+        $("#first-name-control").addClass("control-group error");
+      }
+
+      if ($("#m-last_name").val() !== ""){
+         $("#last-name-control").removeClass("error");
+      }else{
+        $("#last-name-control").addClass("control-group error");
+        $("#last-name-control label").addClass("control-label");
+      }
+
+      if ($("#m-email").val() !== ""){
+        $("#email-control").removeClass("error");
+      }else{
+        $("#email-control").addClass("control-group error");
+        $("#email-control label").addClass("control-label");
+      }
+
+      if ($("#m-re_email").val() !== ""){
+        $("#email-confirm-control").removeClass("error");
+      }else{
+        $("#email-confirm-control").addClass("control-group error");
+        $("#email-confirm-control label").addClass("control-label");
+      }
+
+      if ($("#m-identity_id").val() !== ""){
+        $("#ktp-control").removeClass("error");
+      }else{
+        $("#ktp-control").addClass("control-group error");
+        $("#ktp-control label").addClass("control-label");
+      }
+
+      if ($("#m-no_telp").val() !== ""){
+        $("#phone-control").removeClass("error");
+      }else{
+        $("#phone-control").addClass("control-group error");
+        $("#phone-control label").addClass("control-label");
+      }
+
+
+
+      if ($("#m-vaddress1").val() !== ""){
+        $("#address1-control").removeClass("error");
+      }else{
+        $("#address1-control").addClass("control-group error");
+        $("#address1-control label").addClass("control-label");
+      }
+
+      if ($("#m-vaddress2").val() !== ""){
+        $("#address2-control").removeClass("error");
+      }else{
+        $("#address2-control").addClass("control-group error");
+        $("#address2-control label").addClass("control-label");
+      }
+
+      if ($("#m-vcity").val() !== ""){
+        $("#city-control").removeClass("error");
+      }else{
+        $("#city-control").addClass("control-group error");
+        $("#city-control label").addClass("control-label");
+      }
+
+      if ($("#vcountry").val() !== ""){
+        $("#country-control").removeClass("error");
+      }else{
+        $("#country-control").addClass("control-group error");
+        $("#country-control label").addClass("control-label");
+      }
+
+      if ($("#m-vpostal_code").val() !== ""){
+        $("#postalcode-control").removeClass("error");
+      }else{
+        $("#postalcode-control").addClass("control-group error");
+        $("#postalcode-control label").addClass("control-label");
+      }
+
+      if ($("#vcard_number").val() !== ""){
+        $("#vcard_number-control").removeClass("error");
+      }else{
+        $("#vcard_number-control").addClass("control-group error");
+        $("#vcard_number-control label").addClass("control-label");
+      }
+
+      if ($("#vcvv").val() !== ""){
+        $("#vcvv-control").removeClass("error");
+      }else{
+        $("#vcvv-control").addClass("control-group error");
+        $("#vcvv-control label").addClass("control-label");
+      }
+
+
+    }else{
+      $(".control-group").removeClass("error");
+    }
+
+    var phone = $("#m-no_telp").val();
+    if (is_phone_number(phone) == false) {
+      alert("Format nomor HP : 0812XXXXXXXX atau +62812XXXXXXXX");
+      $("#phone-control").addClass("control-group error");
+      $("#phone-control label").addClass("control-label");
+      return false;
+    }
+
+     if($("#m-re_email").val() != $("#m-email").val()){
+        alert("Harap isi Konfirmasi alamat Email sesuai dengan alamat email awal");
+        $("#email-confirm-control").addClass("control-group error");
+        $("#email-confirm-control label").addClass("control-label");
+        return false;
+    }
+  }
+
+  if(showAlert) {
+    alert("Harap isi semua field yg diperlukan");
+    return false;
+  }
+
+  var tiket_or_pemesanan = (getPayWith() == "bt" ? "Pemesanan" : "Tiket");
+  $("#tiket-or-pemesanan").html(tiket_or_pemesanan);
+  $("#email-inputed").html($("#m-email").val());
+  $("#email-confirmation").modal('show');
+}
+
+function hide_email_confirmation(){
+    $("#email-confirmation").modal('hide');
+}
+
+function show_registration_form(pay_with){
+    if (pay_with == "cc" || pay_with == "bt" || pay_with == "va" ||  pay_with == "cm" ||  pay_with == "be" ||  pay_with == "bm" ||  pay_with == "bk" || pay_with == "cc2" || pay_with == "cc3"){
+        $(".form-normal-registration").show();
+    }
+    if (pay_with == "cc" || pay_with == "cc3"){
+        $(".form-with-cc").show();
+        $(".logo_cc").show();
+        $(".logo_non_cc").hide();
+    } else{
+        $(".form-with-cc").hide();
+        $(".logo_cc").hide();
+        $(".logo_non_cc").show();
+    }   
+}
+$(document).ready(function(){
+    var $btn_pay_with = $(".btn-pay-with, .payment-method");
+    var error_form =  0 ;
+    var pay_method =  "0" ;
+
+  clickEvent = "click";
+    var cookiePaymentMethod = readCookie("payment_method");
+    if (cookiePaymentMethod != null) {
+       pay_method = cookiePaymentMethod;
+       $paymentRadio = $('div.payment-list').find('input[type=radio][name='+cookiePaymentMethod+'');
+       $('label.radio').parent().removeClass('active');
+       $paymentRadio.parents("li").addClass('active');
+       $('#step-page1').hide();
+       $('#step-page2').show();
+       $('.info-step .step-page1').removeClass('active').addClass('done');
+       $('.info-step .step-page2').addClass('active');
+       $("#pay_with").val(cookiePaymentMethod);
+       show_registration_form(cookiePaymentMethod);
+       calc_total_fee();
+    }
+
+
+    $btn_pay_with.live(clickEvent, function(e){
+        $("input.payment-method").prop("checked",false);
+        $(this).prop("checked",true);
+        $btn_pay_with.removeClass("loket-btn-pick");
+        pay_method = $(this).attr("data-pay-with");
+        $(this).addClass("loket-btn-pick");
+        $("#pay_with").val(pay_method);
+        show_registration_form(pay_method);
+        calc_total_fee();
+    });
+
+    $('label.radio').click(function () {
+      $(this).find('input[type=radio]').focus();
+
+      $('label.radio').parent().removeClass('active');
+      $(this).parent().addClass('active');
+    });
+
+    $('.step a').click(function(){
+      var stepData = $(this).parent().data('step');
+      var pay = $("#pay_with").val();
+
+        if ($(".alert").length){
+            $(".alert").hide();
+        }
+
+      if(pay == "" && readCookie("payment_method") == null){
+        alert("Silahkan memilih metod pembayaran");
+        return false;
+      } else {
+        createCookie("payment_method",pay,1);
+      }
+
+      if(stepData == "step-page2"){
+          $('.info-step .step-page1').removeClass('active').addClass('done');
+          $('.info-step .step-page2').addClass('active');
+      }
+
+      if(stepData == "step-page1"){
+          $('.info-step .step-page1').removeClass('done').addClass('active');
+          $('.info-step .step-page2').removeClass('active');
+          eraseCookie("payment_method");
+      }
+
+      $('.step-page').hide();
+      $('#' + stepData).fadeIn(100);
+    });
+
+    $("#payment-form").submit(function(event){
+        var pay = $("#pay_with").val();
+
+        if(error_form == 1){
+          pay = pay_method;
+          $("#pay_with").val(pay_method);
+        }
+        show_email_confirmation(pay);
+        event.preventDefault();
+        return false;
+    });
+
+    $("#ganti-email").live(clickEvent, function(){
+        hide_email_confirmation();
+        $("#m-email").focus();
+    })
+    $("#email-benar").live(clickEvent, function(e){
+         
+       if (getPayWith() == "cc"){
+          var cnumber_ = $('#vcard_number').val(), bin = cnumber_.split(" ").join("").substring(0, 6);
+
+              
+          $.ajax({
+                  type : 'POST',
+                  url : '/ajax/log_veritrans.php',
+                  dataType : 'text',
+                  data: {
+                      'msg'      : 'pretepStep 0 - Nama: ' + $("#m-first_name").val() + ' ' + $("#m-last_name").val() + ', Email: ' + $("#m-email").val() + ', Bin: ' + bin + ', Browser: ' + navigator.userAgent
+                  },
+                  success : function(data){
+                      console.log(data);
+                      //_success(response);
+                  },
+                  error : function(XMLHttpRequest, textStatus, errorThrown) {
+                      console.log(textStatus+" ajax alert token");
+                  }
+          });
+
+        }
+
+        submit_form_payment(e);
+    })
+
+    function display( notifier, str ) {
+  document.getElementById(notifier).innerHTML = str;
+  }
+
+  function transferUrl( url ) {
+    window.location.href = url;
+  }
+
+  function toMinuteAndSecond( x ) {
+    var hour = Math.floor(x / 3600);
+    var minute = Math.floor((x % 3600) / 60);
+    var second = x % 3600 % 60;
+  return hour + " jam " + minute + " menit dan " + second + " detik";
+  }
+
+  function setTimer( remain, actions ) {
+  (function countdown() {
+    display("countdown", toMinuteAndSecond(remain));
+    actions[remain] && actions[remain]();
+    (remain -= 1) >= 0 && setTimeout(arguments.callee, 1000);
+  })();
+  }
+
+  setTimer(886, {
+  0: function () {
+       display("countdown", "Waktu Habis. Silahkan ulangi proses pendaftaran anda");
+       transferUrl("/nwidget/2683?r=13");
+  }
+  });
+});
+</script>
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+  _fbq.push(['addPixelId', '1593542197538740']);
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', 'PixelInitialized', {}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=1593542197538740&amp;ev=PixelInitialized" /></noscript>
+
+<!-- Google-code voor remarketingtag -->
+<!--------------------------------------------------
+Remarketingtags mogen niet worden gekoppeld aan gegevens waarmee iemand persoonlijk kan worden geïdentificeerd of op pagina's worden geplaatst die binnen gevoelige categorieën vallen. Meer informatie en instructies voor het instellen van de tag zijn te vinden op: http://google.com/ads/remarketingsetup
+--------------------------------------------------->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 952201563;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/952201563/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59301123-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-4.newrelic.com","licenseKey":"7da0c1bbeb","applicationID":"3072269","transactionName":"bgNQZkQFWRIFABZdC1dJZ0BfS0AIAAQHQDtJB0tfUwpDTxQLEg==","queueTime":0,"applicationTime":58,"ttGuid":"","agentToken":"","userAttributes":"","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-476.min.js"}</script></body>
+</html>
+
